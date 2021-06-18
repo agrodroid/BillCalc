@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:checkedButton="@id/radioButton1Phase"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/calculate_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPhase">
+
+            <RadioButton
+                android:id="@+id/radioButton1Phase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="1 Phase" />
+
+            <RadioButton
+                android:id="@+id/radioButton3Phase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="3 Phase" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/units_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:hint="Units"
+            app:counterEnabled="true"
+            app:counterMaxLength="4"
+            app:helperText="Enter Units"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/textViewPhase"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+            app:startIconDrawable="@drawable/outline_bolt_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/units_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:padding="16dp"
+            android:text="Calculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <TextView
+            android:id="@+id/amount_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="₹ 0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="@color/purple_500"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/textViewCycle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:checkedButton="@id/radioButton2Month"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/units_input_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCycle">
+
+            <RadioButton
+                android:id="@+id/radioButton1Month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="1 Month" />
+
+            <RadioButton
+                android:id="@+id/radioButton2Month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="2 Month" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewCycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Billing Cycle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup2"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup2"
+            app:layout_constraintTop_toBottomOf="@+id/amount_text_view" />
+
+        <TextView
+            android:id="@+id/textViewPhase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Phase"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintStart_toStartOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/units_input_layout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--        xmlns:tools="http://schemas.android.com/tools"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+
+    <!--        <com.google.android.material.textfield.TextInputLayout-->
+    <!--            android:id="@+id/units_input_layout"-->
+    <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="32dp"-->
+    <!--            android:layout_marginLeft="32dp"-->
+    <!--            android:layout_marginTop="32dp"-->
+    <!--            android:layout_marginEnd="32dp"-->
+    <!--            android:layout_marginRight="32dp"-->
+    <!--            android:hint="Units"-->
+    <!--            app:counterEnabled="true"-->
+    <!--            app:counterMaxLength="4"-->
+    <!--            app:helperText="Enter Units"-->
+    <!--            app:helperTextEnabled="true"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/radioGroup2">-->
+
+    <!--            <com.google.android.material.textfield.TextInputEditText-->
+    <!--                android:id="@+id/units_input_edit_text"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:inputType="phone" />-->
+    <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+    <!--        <Button-->
+    <!--            android:id="@+id/calculate_button"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="32dp"-->
+    <!--            android:layout_marginLeft="32dp"-->
+    <!--            android:layout_marginTop="32dp"-->
+    <!--            android:layout_marginEnd="32dp"-->
+    <!--            android:layout_marginRight="32dp"-->
+    <!--            android:text="Calculate"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.0"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/amount_text_view"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="32dp"-->
+    <!--            android:layout_marginLeft="32dp"-->
+    <!--            android:layout_marginTop="32dp"-->
+    <!--            android:layout_marginEnd="32dp"-->
+    <!--            android:layout_marginRight="32dp"-->
+    <!--            android:layout_marginBottom="8dp"-->
+    <!--            android:text="Bill Calculator"-->
+    <!--            android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/radioGroup2"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:layout_marginTop="100dp" />-->
+
+    <!--        <RadioGroup-->
+    <!--            android:id="@+id/radioGroup2"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="32dp"-->
+    <!--            android:checkedButton="@id/radioButton2Month"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/units_input_layout"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/amount_text_view">-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radioButton1Month"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingRight="32dp"-->
+    <!--                android:text="1 Month" />-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radioButton2Month"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingLeft="32dp"-->
+    <!--                android:text="2 Month" />-->
+    <!--        </RadioGroup>-->
+
+    <!--        <RadioGroup-->
+    <!--            android:id="@+id/radioGroup"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="32dp"-->
+    <!--            android:layout_marginLeft="32dp"-->
+    <!--            android:layout_marginTop="32dp"-->
+    <!--            android:layout_marginEnd="32dp"-->
+    <!--            android:layout_marginRight="32dp"-->
+    <!--            android:checkedButton="@id/radioButton1Phase"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/units_input_layout">-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radioButton1Phase"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingRight="32dp"-->
+    <!--                android:text="1 Phase" />-->
+
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radioButton3Phase"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingLeft="32dp"-->
+    <!--                android:text="3 Phase" />-->
+    <!--        </RadioGroup>-->
+
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</ScrollView>
